@@ -1,0 +1,47 @@
+.nav-link{ 
+    color: black !important; }
+    
+    #grigio{
+        background-color: rgb(242, 242, 242);
+     
+        
+    }
+    .nav-item {
+        padding: 0.5rem 0;
+      }
+      
+      .dropdown-hover:hover>.dropdown-menu {
+      display: inline-block;
+      left: 0;
+      right: 0;
+      
+      }
+      .navbar-collapse.collapse {
+        display: none;
+      }
+      
+      .navbar-collapse.collapse.show {
+        display: block;
+      }
+      .cart-container {
+        position: relative;
+        display: inline-block;  /* Assicurati che il contenitore si comporti come un blocco inline */
+      }
+      
+      .popup {
+        position: absolute;
+        top: 100%;  /* Posiziona il popup giusto sotto l'icona del carrello */
+        right: 0;
+        width: 200px; /* Larghezza del popup */
+        background-color: white;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        padding: 10px;
+        z-index: 1000;  /* Assicurati che il popup sia sopra gli altri elementi */
+      }
+      
+      
+     
+
+      
+      

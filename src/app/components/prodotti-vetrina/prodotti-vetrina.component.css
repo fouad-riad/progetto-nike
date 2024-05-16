@@ -1,0 +1,20 @@
+::-webkit-scrollbar {
+    width: 10px; /* Larghezza della barra di scorrimento */
+    overflow-y: hidden; /* Mostra sempre la barra di scorrimento */
+  }
+  
+  /* Traccia della barra di scorrimento */
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Colore di sfondo della traccia */
+  }
+  
+  /* Imposta il colore della maniglia della barra di scorrimento */
+  ::-webkit-scrollbar-thumb {
+    background-color: #888; /* Colore della maniglia */
+    border-radius: 5px; /* Arrotondamento degli angoli della maniglia */
+  }
+  
+  /* Cambia il colore della maniglia al passaggio del mouse sopra la barra di scorrimento */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Colore della maniglia al passaggio del mouse */
+  }

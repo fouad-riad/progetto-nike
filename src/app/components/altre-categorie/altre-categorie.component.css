@@ -1,0 +1,22 @@
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f8f9fa;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+  }
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  .dropdown-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .dropdown-item {
+    margin: 0 10px;
+  }
+  .dropdown-divider {
+    margin: 5px 0;
+  }

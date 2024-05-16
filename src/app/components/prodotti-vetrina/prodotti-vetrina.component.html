@@ -1,0 +1,30 @@
+<div class="container-fluid ms-5 ps-4">
+   <h1>Trend della settimana</h1>
+ </div>
+<div  class="carousel slide" style="max-height: 650px;">
+   <div class="carousel-inner">
+     <div class="carousel-item active">
+       <div class="container-fluid" style="max-width: 100%; overflow-x: auto;">
+         <div class="row flex-nowrap" style="overflow-x: auto;">
+           <!-- Box per la singola scarpa a schermo piccolo -->
+           <div class="col-12 d-md-none d-block" *ngFor="let prodotti of Trenddellasettimana()">
+             <div class="card mb-3 ">
+               <img [src]="prodotti?.immagine" class="card-img-top img-fluid" alt="Shoe" style="max-width: 100%;">
+             </div>
+           </div>
+ 
+           <!-- Box per le scarpe visibili a display grande -->
+           <div class="col-md-4 d-md-block d-none" *ngFor="let prodotti of Trenddellasettimana()">
+             <div class="card mb-3 w-auto" >
+               <img [src]="prodotti?.immagine" class="card-img-top img-fluid" alt="Shoe" style="max-width: 100%;">
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+ <app-membership-nike></app-membership-nike>
+
+ 
+ 

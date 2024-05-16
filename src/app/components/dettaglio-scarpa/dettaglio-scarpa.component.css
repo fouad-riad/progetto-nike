@@ -1,0 +1,35 @@
+.img{ 
+    width: 50px;
+    height: 50px;
+    margin-left: 100px;
+    
+    border-radius: 10%;
+    margin-top: 2px;
+}  
+.taglia-selezionata {
+    border: solid 1px black;
+    color: black;
+  }
+  .dettagli-scarpa-popup {
+    position: absolute;
+    top: 40%; /* Posiziona il popup al centro verticalmente */
+    right: 0px; /* Posiziona il popup a 20px dal bordo destro dello schermo */
+    transform: translateY(-50%); /* Per centrare il popup verticalmente */
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #cccccc;
+    z-index: 1; /* Assicura che il popup sia al di sopra di tutti gli altri elementi */
+  }
+  .spunta{
+    width: 15px;
+  }
+  .chiudi-popup {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+  }
+  .btn-piccolo {
+    font-size: 0.65rem; /* Imposta la dimensione del carattere più piccola */
+    padding: 0.25rem 0.5rem; /* Imposta il padding più piccolo */
+  }
