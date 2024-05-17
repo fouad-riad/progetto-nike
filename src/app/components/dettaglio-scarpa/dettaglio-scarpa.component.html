@@ -6,24 +6,34 @@
   >
     <!-- Dettagli della scarpa -->
     <span class="chiudi-popup" (click)="chiudiPopupDettagli()">X</span>
-    <p>  <img
-      class="spunta"
+    <p>
+      <img
+        class="spunta"
         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADOUlEQVR4nO2Zz2sTQRTHl3pQ/wXRiydBLCgetBVEhHbeS1tPKYJQpHdRVPAYj9mZ9NdBUbCleuihgkevbeatv+OxtggeRGn9BaII2pZm5aVNm+ZXZ9uZNKk+eIfsTt58vrNvZmfned5/28EmCa8rgmteI5rSsfNKw5LUmJUEPV4jmR/gGUn4RxGG7FLjQioda/fqwVLptgOS4J0kGEqROJUIE02F9/sm4Ygk+J6HX3UNP/10x7HieElqP6wIbkrCqeSE2O9cgCLsLgSThLNKwx2pUaSedBxSBHMl8KsOc9yG2+b+Qzhb1KbbuQCpcbAy4BZdw4BzAYrghSsBkuC5U/i+p/G9SsO8MwEaF7gPZwJ40jpLH8qLgFbr4ImJ03s4sCQYcy6AYIz74j43DewHXfsUiU5JkFSEgSL87RpclfoiL62S4C6/CPspdtBYgNI4sw3A4QapNW0ugNCvNeCtTHyj1EoaC0ilsaWW8CNTPeHLpf7w0YcrlQUEHSeNBfD2oPob1T58JhzMeTkRUuPn4i3Lxmmkcdg1/Oibi+Gr7Bo8O/++/Xp9OkkN9yLB59IoiHXVcuQzK/AsqrS96IwsQGrRXOuRHy0Lz09ANEeC9wM4znlXD/CKXcM340mc0uKs1PijbuBp5SkQ/lIEUB0+EBd4Q2Vr7bYFr9Z80SfRWx6e4DJ/w5oGe/j+kjGAJfhweT5gVlHsxpYEMLwpiE14VU2AaQrxGm0KZBteVUuhKJO43BqeyQ6E92d63Y08GUziKMtoNRHWR15HWEajvMgqgVpOmzDyiywnII3nTIKXfRIW4RVhyNua6AIIR0w7qCTCBrzKpRAOR4LnravU8ClKJ8UirMHT8nZ6fDy+y3z0NbRupqO8CJvwKp9GaWyJkD4gN9sRg9uGV8vuN/RHvSJ4++8cqzT8wZbtye1sska1ocdid2HlxbprmHcy8oXGR+DO0kfjM8+1cRHCYf73b0OJCb5Kgge8auXKR6Vlo0L/wm34mJ5rbFLDx/WxYvHaFPk0TPMS20fiRPGJWWpSHC33PcHX+F5h20SYaOIYHItjcmyvXsusMhBtXiOZauRCd96khqvsqxf+2w60v6BxFO3k3vUtAAAAAElFTkSuQmCC"
-      />aggiunto al carello </p>
-      
-        <img
-          [src]="prodotto.immagine"
-          class="img-fluid row img"
-          alt="Immagine Scarpa"
-        />
-        
+        alt="Spunta"
+      />
+      aggiunto al carrello
+    </p>
+
+    <img
+      [src]="prodotto.immagine"
+      class="img-fluid row img"
+      alt="Immagine Scarpa"
+    />
+
     <p> {{ prodotto.nome }}</p>
-    <p>Taglia/Misura EU{{ tagliaSelezionata}}</p>
-    <p>{{ prodotto.prezzo | currency : "EUR" }}</p>
+    <p>Taglia/Misura EU {{ tagliaSelezionata }}</p>
+    <p>{{ prodotto.prezzo | currency: 'EUR' }}</p>
     <!-- Altri dettagli della scarpa -->
     <div class="row">
       <div class="col-md-6">
-        <button [routerLink]="['/carello']" type="submit" class="btn btn-dark btn-sm w-100 btn-piccolo">Visualizza carrello</button>
+        <button
+          [routerLink]="['/carello']"
+          type="submit"
+          class="btn btn-dark btn-sm w-100 btn-piccolo"
+        >
+          Visualizza carrello
+        </button>
       </div>
       <div class="col-md-6">
         <button class="btn btn-sm btn-primary w-100">Pagamento</button>
@@ -40,48 +50,8 @@
             class="img-fluid row img"
             alt="Immagine Scarpa"
           />
-          <img
-            src="assets/img/esempio1.png"
-            class="img-fluid row img"
-            alt="Immagine Scarpa"
-          />
-          <img
-            src="assets/img/esempio1.png"
-            class="img-fluid row img"
-            alt="Immagine Scarpa"
-          />
-          <img
-            src="assets/img/esempio1.png"
-            class="img-fluid row img"
-            alt="Immagine Scarpa"
-          />
-          <img
-            src="assets/img/esempio1.png"
-            class="img-fluid row img"
-            alt="Immagine Scarpa"
-          />
-          <img
-            src="assets/img/esempio1.png"
-            class="img-fluid row img"
-            alt="Immagine Scarpa"
-          />
-          <img
-            src="assets/img/esempio1.png"
-            class="img-fluid row img"
-            alt="Immagine Scarpa"
-          />
-          <img
-            src="assets/img/esempio1.png"
-            class="img-fluid row img"
-            alt="Immagine Scarpa"
-          />
-          <img
-            src="assets/img/esempio1.png"
-            class="img-fluid row img"
-            alt="Immagine Scarpa"
-          />
+          <!-- Aggiungi altre immagini piccole qui -->
         </div>
-        <!-- Aggiungi altre immagini piccole qui -->
       </div>
     </div>
 
@@ -102,7 +72,7 @@
       <div class="container">
         <h2>{{ prodotto.nome }}</h2>
         <p>{{ prodotto.descrizione }}</p>
-        <p>{{ prodotto.prezzo | currency : "EUR" }}</p>
+        <p>{{ prodotto.prezzo | currency: 'EUR' }}</p>
         <div *ngIf="erroreTaglia" class="text-danger">{{ erroreTaglia }}</div>
         <div class="container">
           <div class="row">
@@ -128,7 +98,7 @@
           class="btn btn-dark col-md-11 mt-1 ms-2"
           (click)="aggiungiAlCarrello()"
         >
-          Aggiungi al carello
+          Aggiungi al carrello
         </button>
         <button
           type="submit"

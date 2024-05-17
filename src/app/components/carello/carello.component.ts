@@ -1,21 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { prodotto } from '../models/prodotto';
 import { ServizioNikeService } from '../../services/servizio-nike.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-carello',
   templateUrl: './carello.component.html',
-  styleUrl: './carello.component.css'
+  styleUrls: ['./carello.component.css']
 })
-export class CarelloComponent {
-  prodotto: prodotto | undefined;
-  constructor(private sn:ServizioNikeService,private route: ActivatedRoute){}
+export class CarelloComponent implements OnInit {
+  carrello: { prodotto: prodotto, taglia: string }[] = [];
+  totale: number = 0;
+  constructor(private sn: ServizioNikeService) {}
+
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id !== null) {
-      this.prodotto = this.sn.prodotti.find(item => item.id === +id);
-    }
+    this.sn.getCarrello().subscribe(carrello => {
+      this.carrello = carrello;
+      console.log('Carrello ricevuto dal servizio:', this.carrello);
+    });
+
+    this.sn.totale.subscribe(totale => {
+      this.totale = totale;
+      console.log('Totale aggiornato:', this.totale);
+    });
+  }
+  
+
+  checkout() {
+    alert('Checkout completato! Grazie per il tuo acquisto.');
+    // Resetta il carrello nel servizio
+    this.sn.resetCarrello();
+  }
+    rimuoviProdotto(index: number) {
+    console.log('Rimozione prodotto in posizione:', index);
+    this.sn.rimuoviDalCarrello(index);
   }
   
   

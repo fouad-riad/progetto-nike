@@ -1,1 +1,80 @@
-<p>carello works!</p>
+<div class="container d-flex mt-5 ms-5">
+  <!-- Contenitore del carrello -->
+  <div class="carrello-container">
+    <h2>Carrello</h2>
+    <div *ngIf="carrello.length > 0; else carrelloVuoto">
+      <div
+        *ngFor="let item of carrello; let i = index"
+        class=" mb-3 carrello-card"
+      >
+        <div class=" d-flex">
+          <img
+            [src]="item.prodotto.immagine"
+            class="carrello-img me-3"
+            alt="Immagine Scarpa"
+          />
+          <div class="details">
+            <h5 class="card-title">{{ item.prodotto.nome }}</h5>
+            <p class="card-text">
+              Prezzo: {{ item.prodotto.prezzo | currency : "EUR" }}
+            </p>
+            <p class="card-text">Taglia: {{ item.taglia }}</p>
+            <div>
+              <img
+                style="width: 18px"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACC0lEQVR4nO2WvU5VQRSFvwgh0oEQoSAGO0y0kSfQBkigUCoh0SCFhT+JiRgttZMQqLWiI1ghvgB0Ehro0QfACAWY8GMYM8nSHAz3nJkz9xou7C+ZatasPTt3ndkXzhENwDiwDGwB+8A34D1wvYp1bgAf5O1r/ACWgIe6QxKNwCLgKqxfwBvgQkINf/atvFyFtZjazDMZfQfuAZeAJuAaMAUcav9dQo1JeXgv79mjGm3AiGr7/acpjazIxBuexABwIM39Ev4PdNZ79FfQjErzhQS2ZNKSoxmT5ifQHeF9BdjR2Uc5ulZp/F1q2ohnXrqFCO9POjNXoGuRzn/8pVmVya0CXSewLe1ggO+gtNs6m8dtaX3MS/Mq82oU8UTaDeBijs7vfZX2cYDvZ2lfkkA7sCkj31TRU70u7XSObkaatYAn9bW0m3rFkujPvPGzwOUcba+G2RFw54T9u9rbA27m+HSo1p9Z1UeVGAJ2ZbyrIsN6pZr/0T7PzIUXenX8msjMHa/J0iyvYXlna4V8c1F06W9J3gSu1joCPgJXYy/p6nz95cw1kkqoT83qOWvkOPaLlMRZtAqwaJXE1XqOhF7g1A/EImpezyXOk//1jbii89aIsF8kEmfRCsSiFYmzaAVi0YrEWbQCsWhF4ixagVi0InEWrUAsWpE4i1YgFq1I3LmLlquTVZEz0wj1ym+eZYcaG5nPpQAAAABJRU5ErkJggg=="
+              />
+              <img
+                src="assets/img/preferiti.png"
+                alt=""
+                class="img-fluid ms-3"
+                style="width: 18px"
+              />
+              <img
+                class="ms-3"
+                style="width: 18px"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABCElEQVR4nNWUMWoCYRCFv8Y0YpMcIQYEsQy5gR5BrRKEgOIJTE4Qj6AB0+sRNDfIFgGx0/QKpkgwRWDDwissFGd+s5AMPNjie292dv/54Y9UVkqlCsArMANKvx1+A3wCsfQB3AJtIAIGoZMlpqet4IEU79AUKFqDz/aExA6dHmqyPiL83TJFJPjSOrbYxPNigUeCq44GNXmGFrgruONocCfPgwVuCe45GvTlaVrgiuCxo8FEnrIFvhA8dzRYyHNugTPAt3Ti5JNnU73pjfIpTcyz45tWAv4Zj45T0Qo4ddw7znU3YG+oOzZzFLD5XMkUpXR3kQO+HLfoRh5XNYCVIXwJXHvD/0/9AMpTfTUFSV+XAAAAAElFTkSuQmCC"
+                (click)="rimuoviProdotto(i)"
+              />
+              
+            </div>
+            
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+    
+    <ng-template #carrelloVuoto>
+      <p>Il carrello è vuoto.</p>
+    </ng-template>
+  </div>
+
+  <!-- Contenitore del riepilogo -->
+  <div class="riepilogo-container ms-5">
+    <h2>Riepilogo Acquisto</h2>
+    <div *ngIf="carrello.length > 0">
+      <p>Totale articoli: {{ carrello.length }}</p>
+      <p>Subtotale:{{ totale | currency : "EUR" }}</p>
+      <p>Costi di spedizione e gestione gratis</p>
+      <hr />
+      <p>Totale: {{ totale | currency : "EUR" }}</p>
+
+      <button type="submit" class="btn btn-dark col-md-11 mt-1 ms-2">
+        Vai al Pagamento
+      </button>
+      <button
+        type="submit"
+        class="btn btn-white col-md-11 mt-1 ms-2"
+        style="border: solid 1px black"
+      >
+        PayPal
+      </button>
+    </div>
+    <ng-template #carrelloVuoto>
+      <p>Non ci sono articoli nel carrello.</p>
+    </ng-template>
+  </div>
+</div>
