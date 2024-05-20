@@ -1,0 +1,68 @@
+<div class="container mt-5">
+  <h2>Pagamento</h2>
+  <div *ngIf="carrello.length > 0; else carrelloVuoto">
+    <div class="row">
+      <!-- Colonna delle scarpe -->
+      <div class="col-md-8">
+        <div class="row">
+          <div *ngFor="let item of carrello" class="col-md-6 col-lg-4 mb-3">
+            <div class=" h-100">
+              <img [src]="item.prodotto.immagine" alt="Immagine Scarpa" class="card-img-top" style="height: 150px; object-fit: cover;">
+              <div class="card-body">
+                <h5 class="card-title">{{ item.prodotto.nome }}</h5>
+                <p class="card-text">Prezzo: {{ item.prodotto.prezzo | currency: 'EUR' }}</p>
+                <p class="card-text">Taglia: {{ item.taglia }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Colonna della form -->
+      <div class="col-md-4">
+        <div class=" p-4">
+          <h4 class="card-title">Dettagli di Pagamento</h4>
+          <form [formGroup]="pagamentoForm" (ngSubmit)="confermaPagamento()">
+            <div class="mb-3">
+              <label for="nome" class="form-label">Nome</label>
+              <input type="text" class="form-control" id="nome" formControlName="nome">
+              <div *ngIf="nome?.touched && nome?.invalid" class="text-danger">
+                <div *ngIf="nome?.errors?.['required']">Nome è obbligatorio.</div>
+                <div *ngIf="nome?.errors?.['pattern']">Nome può contenere solo lettere e spazi.</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="cognome" class="form-label">Cognome</label>
+              <input type="text" class="form-control" id="cognome" formControlName="cognome">
+              <div *ngIf="cognome?.touched && cognome?.invalid" class="text-danger">
+                <div *ngIf="cognome?.errors?.['required']">Cognome è obbligatorio.</div>
+                <div *ngIf="cognome?.errors?.['pattern']">Cognome può contenere solo lettere e spazi.</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="indirizzo" class="form-label">Indirizzo</label>
+              <input type="text" class="form-control" id="indirizzo" formControlName="indirizzo">
+              <div *ngIf="indirizzo?.touched && indirizzo?.invalid" class="text-danger">
+                <div *ngIf="indirizzo?.errors?.['required']">Indirizzo è obbligatorio.</div>
+                <div *ngIf="indirizzo?.errors?.['pattern']">Inserisci un indirizzo valido.</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="carta" class="form-label">Numero Carta di Credito</label>
+              <input type="text" class="form-control" id="carta" formControlName="carta">
+              <div *ngIf="carta?.touched && carta?.invalid" class="text-danger">
+                <div *ngIf="carta?.errors?.['required']">Numero di carta di credito è obbligatorio.</div>
+                <div *ngIf="carta?.errors?.['pattern']">Numero di carta di credito deve essere di 16 cifre.</div>
+              </div>
+            </div>
+            <button type="submit" style="border: solid 1px black;" class="btn  w-100">Conferma Pagamento</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <h4>Totale: {{ totale | currency: 'EUR' }}</h4>
+  </div>
+  <ng-template #carrelloVuoto>
+    <p>Il carrello è vuoto.</p>
+  </ng-template>
+</div>

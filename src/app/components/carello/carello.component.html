@@ -1,6 +1,6 @@
 <div class="container d-flex mt-5 ms-5">
   <!-- Contenitore del carrello -->
-  <div class="carrello-container">
+  <div class="carrello-container mb-4 h-100" >
     <h2>Carrello</h2>
     <div *ngIf="carrello.length > 0; else carrelloVuoto">
       <div
@@ -31,8 +31,9 @@
                 style="width: 18px"
               />
               <img
+
                 class="ms-3"
-                style="width: 18px"
+                style="width: 18px ;cursor: pointer;"
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABCElEQVR4nNWUMWoCYRCFv8Y0YpMcIQYEsQy5gR5BrRKEgOIJTE4Qj6AB0+sRNDfIFgGx0/QKpkgwRWDDwissFGd+s5AMPNjie292dv/54Y9UVkqlCsArMANKvx1+A3wCsfQB3AJtIAIGoZMlpqet4IEU79AUKFqDz/aExA6dHmqyPiL83TJFJPjSOrbYxPNigUeCq44GNXmGFrgruONocCfPgwVuCe45GvTlaVrgiuCxo8FEnrIFvhA8dzRYyHNugTPAt3Ti5JNnU73pjfIpTcyz45tWAv4Zj45T0Qo4ddw7znU3YG+oOzZzFLD5XMkUpXR3kQO+HLfoRh5XNYCVIXwJXHvD/0/9AMpTfTUFSV+XAAAAAElFTkSuQmCC"
                 (click)="rimuoviProdotto(i)"
               />
@@ -53,7 +54,7 @@
   </div>
 
   <!-- Contenitore del riepilogo -->
-  <div class="riepilogo-container ms-5">
+  <div class="riepilogo-container ms-5 mb-4 h-100">
     <h2>Riepilogo Acquisto</h2>
     <div *ngIf="carrello.length > 0">
       <p>Totale articoli: {{ carrello.length }}</p>
@@ -62,9 +63,10 @@
       <hr />
       <p>Totale: {{ totale | currency : "EUR" }}</p>
 
-      <button type="submit" class="btn btn-dark col-md-11 mt-1 ms-2">
+      <button type="submit" class="btn btn-dark col-md-11 mt-1 ms-2" [routerLink]="['/pagamento']">
         Vai al Pagamento
       </button>
+      
       <button
         type="submit"
         class="btn btn-white col-md-11 mt-1 ms-2"

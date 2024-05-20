@@ -8,6 +8,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { HeroBannerComponent } from './components/hero-banner/hero-banner.component';
 import { ProdottiVetrinaComponent } from './components/prodotti-vetrina/prodotti-vetrina.component';
@@ -19,6 +21,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NuoviArriviComponent } from './components/nuovi-arrivi/nuovi-arrivi.component';
 import { DettaglioScarpaComponent } from './components/dettaglio-scarpa/dettaglio-scarpa.component';
 import { CarelloComponent } from './components/carello/carello.component';
+import { PagamentoComponent } from './components/pagamento/pagamento.component';
+import { ThankYouComponent } from './components/thank-you/thank-you.component';
+import { BestsellerComponent } from './components/bestseller/bestseller.component';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +40,10 @@ import { CarelloComponent } from './components/carello/carello.component';
     NuoviArriviComponent,
     DettaglioScarpaComponent,
     CarelloComponent,
+    PagamentoComponent,
+    ThankYouComponent,
+    BestsellerComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -42,6 +52,7 @@ import { CarelloComponent } from './components/carello/carello.component';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    ReactiveFormsModule
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
