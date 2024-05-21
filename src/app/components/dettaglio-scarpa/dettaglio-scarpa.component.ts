@@ -28,13 +28,14 @@ export class DettaglioScarpaComponent implements OnInit {
 
   selezionaTaglia(taglia: string) {
     this.sn.updateTagliaSelezionata(taglia);
+    this.erroreTaglia = ''; // Resetta il messaggio di errore se la taglia è stata selezionata
   }
 
   aggiungiAlCarrello() {
     if (this.tagliaSelezionata === null) {
       this.erroreTaglia = "Si prega di selezionare una taglia prima di aggiungere al carrello.";
     } else if (this.prodotto) {
-      this.erroreTaglia = ''; // Resetta il messaggio di errore se la taglia è stata selezionata
+     
       this.sn.aggiungiAlCarrello(this.prodotto, this.tagliaSelezionata);
       this.mostraDettagliScarpa = true;
     }
