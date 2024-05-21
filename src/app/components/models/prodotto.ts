@@ -1,3 +1,20 @@
+export class NuovoAcquistoProdottoDTO{
+  constructor(
+   public prodotto:prodotto,
+   public userId:number,
+  ){}
+}
+
+
+
+export type ProdottoAcquistato = {
+  id:number;
+  userId:number;
+  prodotto:prodotto;
+}
+
+
+
 export type prodotto= {
     id: number
     nome: string

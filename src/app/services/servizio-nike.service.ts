@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { PRODOTTI } from '../components/dati/nike';
-import { prodotto } from '../components/models/prodotto';
-import { BehaviorSubject } from 'rxjs';
+import { ProdottoAcquistato, prodotto } from '../components/models/prodotto';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { AuthService } from './auth.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +22,8 @@ export class ServizioNikeService {
   totale = this.totaleSource.asObservable();
   
   
-  constructor() {
+  
+  constructor( private http: HttpClient,private as:AuthService) {
     const carrelloSalvato = localStorage.getItem('carrello');
     if (carrelloSalvato) {
       const carrello = JSON.parse(carrelloSalvato);
@@ -73,7 +77,20 @@ export class ServizioNikeService {
     const totale = carrello.reduce((acc, item) => acc + item.prodotto.prezzo, 0);
     this.totaleSource.next(totale);
   }
+  getAcquisto() : Observable<ProdottoAcquistato[]> {
+
+  const user ={
+    headers: new HttpHeaders ({
+      Autrorization : "Bearer" + this.as.getLoggedUser()?.accessToken    
+    })
+  };
+  return this.http.get<ProdottoAcquistato[]>(
+    `${environment.JSON_SERVER_BASE_URL}/prodotto?userId=` + this.as.getLoggedUser()?.user.id,
+    user
+  );
+}
+  }
 
  
   
-}
+

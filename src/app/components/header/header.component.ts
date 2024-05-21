@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ServizioNikeService } from '../../services/servizio-nike.service';
 import { PRODOTTI } from '../dati/nike';
 import { prodotto } from '../models/prodotto';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -13,7 +14,10 @@ export class HeaderComponent {
  prodotto:prodotto | undefined;
  
 
-  constructor(private sn: ServizioNikeService) { }
+  constructor(public sn: ServizioNikeService,public as:AuthService) { }
+  logout(){
+    this.as.logout()
+  }
 
   
 }

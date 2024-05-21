@@ -1,12 +1,12 @@
 <div class="container-fluid ms-5 ps-4">
-    <h1>Nuovi arrivi</h1>
+    <h1>Best seller</h1>
   </div>
-<div class="container mt-4">
+<div class="container mt-4 mb-5">
     <div class="row row-cols-1 row-cols-md-4 g-4">
       <div class="col" *ngFor="let prodotto of filtraProdottiBestseller()">
         <div class=" h-100">
           <a [routerLink]="['/dettaglioscarpa', prodotto.id]">
-          <img [src]="prodotto?.immagine" class="card-img-top" alt="..." style="height: 160px;">
+          <img [src]="prodotto?.immagine" class="card-img-top" alt="..." style="height: 300px;">
         </a>
           <div class="card-body">
             <h3 class="card-title">{{ prodotto?.nome }}</h3>

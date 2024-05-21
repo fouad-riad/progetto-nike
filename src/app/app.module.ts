@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HeaderComponent } from './components/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -24,6 +26,8 @@ import { CarelloComponent } from './components/carello/carello.component';
 import { PagamentoComponent } from './components/pagamento/pagamento.component';
 import { ThankYouComponent } from './components/thank-you/thank-you.component';
 import { BestsellerComponent } from './components/bestseller/bestseller.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -43,6 +47,8 @@ import { BestsellerComponent } from './components/bestseller/bestseller.componen
     PagamentoComponent,
     ThankYouComponent,
     BestsellerComponent,
+    RegisterComponent,
+    LoginComponent,
   
   ],
   imports: [
@@ -52,7 +58,9 @@ import { BestsellerComponent } from './components/bestseller/bestseller.componen
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

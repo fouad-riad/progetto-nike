@@ -10,6 +10,9 @@ import { PagamentoComponent } from './components/pagamento/pagamento.component';
 import { ThankYouComponent } from './components/thank-you/thank-you.component';
 import { BestsellerComponent } from './components/bestseller/bestseller.component';
 
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+
 
 
 const routes: Routes = [
@@ -21,7 +24,9 @@ const routes: Routes = [
   {path:'carello',component:CarelloComponent},
   { path: 'pagamento', component: PagamentoComponent },
   { path: 'thank-you', component: ThankYouComponent },
-  { path: '', redirectTo: '/carrello', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+ 
 
 ];
 

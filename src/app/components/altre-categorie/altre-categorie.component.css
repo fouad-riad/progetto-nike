@@ -20,3 +20,9 @@
   .dropdown-divider {
     margin: 5px 0;
   }
+  @media (max-width: 1012px) {
+    .sparisci {
+      display: none;
+    }
+   
+  }
